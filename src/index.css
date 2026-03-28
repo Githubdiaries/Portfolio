@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-google-blue: #1a73e8;
+  --color-google-gray-50: #f8f9fa;
+  --color-google-gray-100: #f1f3f4;
+  --color-google-gray-200: #e8eaed;
+  --color-google-gray-700: #3c4043;
+  --color-google-gray-900: #202124;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-google-gray-50 text-google-gray-900 selection:bg-google-blue/20 selection:text-google-blue overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-google-gray-900;
+  }
+}
+
+@layer components {
+  .sleek-card {
+    @apply bg-white p-6 rounded-2xl border border-google-gray-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-google-blue/30;
+  }
+
+  .label-caps {
+    @apply text-[11px] uppercase tracking-[0.15em] font-bold text-google-blue opacity-80;
+  }
+
+  .figma-text-body {
+    @apply text-[14px] leading-relaxed text-google-gray-700;
+  }
+
+  .figma-text-heading {
+    @apply text-[16px] font-bold tracking-tight text-google-gray-900;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-google-blue text-white rounded-full text-sm font-medium transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

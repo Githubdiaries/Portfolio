@@ -37,60 +37,73 @@ interface Experience {
 // --- Data ---
 const PROJECTS: Project[] = [
   {
-    title: "grammarpal-vite",
-    description: "High-performance TypeScript grammar checker. Real-time NLP analysis.",
-    tags: ["TS", "React", "NLP"],
-    github: "https://github.com/Githubdiaries/grammarpal-vite",
+    title: "Sola",
+    description: "A GIS-based solar site discovery platform that helps identify suitable locations for solar energy planning.",
+    tags: ["TypeScript", "React", "GIS / mapping", "CSS"],
+    github: "https://github.com/Githubdiaries/Sola",
     rotation: -1,
   },
   {
-    title: "VeinVision",
-    description: "AI for medical imaging. Deep learning for vein identification.",
-    tags: ["Python", "AI", "PyTorch"],
-    github: "https://github.com/Githubdiaries/VeinVision",
+    title: "Pratilipi Clone",
+    description: "A reading and publishing platform clone focused on story listing, content browsing, and clean UI replication.",
+    tags: ["React", "TypeScript", "HTML", "CSS"],
+    github: "https://github.com/Githubdiaries/Pratilipi_Clone",
     rotation: 1.5,
   },
   {
-    title: "Hugs-n-Cocoa",
-    description: "Community platform for warmth and positive social connection.",
-    tags: ["React", "Firebase"],
-    github: "https://github.com/Githubdiaries/Hugs-n-Cocoa",
+    title: "Indica",
+    description: "A project built around Indian-language or Indic-focused interaction.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Githubdiaries/Indica",
     rotation: -0.5,
+  },
+  {
+    title: "Hamp-Forca",
+    description: "A forecasting project for gift hamper demand using market data and prediction workflows.",
+    tags: ["Python", "Forecasting", "Machine Learning"],
+    github: "https://github.com/Githubdiaries/hamp-forca",
+    rotation: 1,
   }
 ];
 
 const EXPERIENCES: Experience[] = [
   {
-    role: "Software Engineer Intern",
-    company: "Tech Solutions Inc.",
-    period: "2024 - Present",
-    description: "Developing scalable AI-driven web applications using React and Python.",
+    role: "Intern",
+    company: "SCTIMST",
+    period: "Mar 2026 – Present",
+    description: "Worked on TTE Development.",
     rotation: 1,
   },
   {
-    role: "AI Developer",
-    company: "Open Source",
-    period: "2023 - 2024",
-    description: "Contributed to major AI foundational learning projects and computer vision.",
+    role: "Open-Source Contributor",
+    company: "GirlScript Summer of Code",
+    period: "Sep 2025 – Oct 2025",
+    description: "Contributed to open-source projects through GirlScript Summer of Code.",
     rotation: -1.2,
   }
 ];
 
 const SKILLS = [
+  { name: "Java", icon: <Code2 className="w-4 h-4" /> },
+  { name: "Python", icon: <Terminal className="w-4 h-4" /> },
   { name: "TypeScript", icon: <Code2 className="w-4 h-4" /> },
   { name: "React", icon: <Globe className="w-4 h-4" /> },
-  { name: "Python", icon: <Terminal className="w-4 h-4" /> },
-  { name: "AI / ML", icon: <Cpu className="w-4 h-4" /> },
-  { name: "Tailwind", icon: <Layers className="w-4 h-4" /> },
-  { name: "Firebase", icon: <Globe className="w-4 h-4" /> },
+  { name: "HTML", icon: <Globe className="w-4 h-4" /> },
+  { name: "CSS", icon: <Layers className="w-4 h-4" /> },
+  { name: "OpenCV", icon: <Cpu className="w-4 h-4" /> },
+  { name: "Electron", icon: <Terminal className="w-4 h-4" /> },
+  { name: "Git", icon: <Code2 className="w-4 h-4" /> },
+  { name: "Docker", icon: <Layers className="w-4 h-4" /> },
+  { name: "Figma", icon: <Layers className="w-4 h-4" /> },
 ];
 
 // --- Components ---
 
-const SleekCard: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => (
+const SleekCard: React.FC<{ children: React.ReactNode, className?: string, onClick?: () => void }> = ({ children, className, onClick }) => (
   <motion.div
     whileHover={{ y: -4 }}
-    className={`sleek-card ${className}`}
+    onClick={onClick}
+    className={`sleek-card ${onClick ? 'cursor-pointer hover:border-google-blue/50' : ''} ${className}`}
   >
     {children}
   </motion.div>
@@ -112,7 +125,7 @@ export default function App() {
               Aksa Susan Abraham
             </motion.h1>
             <p className="text-[16px] md:text-[18px] font-medium text-google-gray-700 max-w-md">
-              Software Engineer & AI Developer building intelligent systems and elegant digital experiences.
+              A student and developer who loves building web apps and exploring AI.
             </p>
           </div>
           <div className="flex flex-col items-start md:items-end gap-4">
@@ -127,7 +140,7 @@ export default function App() {
               <a href="https://www.linkedin.com/in/aksa-susan-abraham/" target="_blank" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-blue hover:text-google-blue transition-all shadow-sm">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="mailto:aksasusan28@gmail.com" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-blue hover:text-google-blue transition-all shadow-sm">
+              <a href="mailto:aksasusan1904@gmail.com" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-blue hover:text-google-blue transition-all shadow-sm">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -137,7 +150,7 @@ export default function App() {
         {/* --- Intro --- */}
         <section className="max-w-3xl">
           <p className="text-[28px] md:text-[36px] font-display font-medium leading-[1.2] tracking-[-0.02em] text-google-gray-900">
-            Focused on the intersection of <span className="text-google-blue">technical rigor</span> and <span className="italic">creative design</span>.
+            I enjoy writing clean code, learning new tools, and <span className="text-google-blue">building simple solutions</span> for everyday problems.
           </p>
         </section>
 
@@ -162,22 +175,37 @@ export default function App() {
               View all <ArrowRight className="w-3 h-3" />
             </a>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROJECTS.map((project, i) => (
-              <SleekCard key={project.title}>
+              <SleekCard 
+                key={project.title} 
+                onClick={() => project.github && window.open(project.github, "_blank", "noopener,noreferrer")}
+              >
                 <div className="h-full flex flex-col">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="figma-text-heading">{project.title}</h3>
                     <div className="flex gap-2">
                       {project.github && (
-                        <a href={project.github} target="_blank" className="text-google-gray-700 hover:text-google-blue transition-colors">
+                        <span 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.github, "_blank", "noopener,noreferrer");
+                          }} 
+                          className="text-google-gray-700 hover:text-google-blue transition-colors cursor-pointer"
+                        >
                           <Github className="w-4 h-4" />
-                        </a>
+                        </span>
                       )}
                       {project.live && (
-                        <a href={project.live} target="_blank" className="text-google-gray-700 hover:text-google-blue transition-colors">
+                        <span 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.live, "_blank", "noopener,noreferrer");
+                          }} 
+                          className="text-google-gray-700 hover:text-google-blue transition-colors cursor-pointer"
+                        >
                           <ExternalLink className="w-4 h-4" />
-                        </a>
+                        </span>
                       )}
                     </div>
                   </div>

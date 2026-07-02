@@ -9,6 +9,8 @@
   --color-google-gray-50: #f8f9fa;
   --color-google-gray-100: #f1f3f4;
   --color-google-gray-200: #e8eaed;
+  --color-google-gray-300: #dadce0;
+  --color-google-gray-400: #bdc1c6;
   --color-google-gray-700: #3c4043;
   --color-google-gray-900: #202124;
 }
@@ -21,11 +23,15 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight text-google-gray-900;
   }
+
+  a, a:hover, a:active, a:focus {
+    text-decoration: none !important;
+  }
 }
 
 @layer components {
   .sleek-card {
-    @apply bg-white p-6 rounded-2xl border border-google-gray-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-google-blue/30;
+    @apply bg-white p-6 rounded-2xl border border-google-gray-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-google-gray-300;
   }
 
   .label-caps {

@@ -45,15 +45,15 @@ const PROJECTS: Project[] = [
   },
   {
     title: "Pratilipi Clone",
-    description: "A reading and publishing platform clone focused on story listing, content browsing, and clean UI replication.",
+    description: "A UI clone of Pratilipi .",
     tags: ["React", "TypeScript", "HTML", "CSS"],
     github: "https://github.com/Githubdiaries/Pratilipi_Clone",
     rotation: 1.5,
   },
   {
     title: "Indica",
-    description: "A project built around Indian-language or Indic-focused interaction.",
-    tags: ["HTML", "CSS", "JavaScript"],
+    description: "A real-time AI voice agent that integrates Sarvam STT/TTS, Gemini, WebSocket, and RAG.",
+    tags: ["Python", "JavaScript/TypeScript", "WebSocket", "Gemini", "Sarvam", "RAG"],
     github: "https://github.com/Githubdiaries/Indica",
     rotation: -0.5,
   },
@@ -97,13 +97,51 @@ const SKILLS = [
   { name: "Figma", icon: <Layers className="w-4 h-4" /> },
 ];
 
+// --- Drive Link Placeholders ---
+const AIBYHER_DRIVE_URL = "https://drive.google.com/drive/u/1/folders/1V4vXHAC9TzPdqJFJixguIovfQF6ub8BD";
+const AIWS_DRIVE_URL = "https://drive.google.com/drive/u/1/folders/1vEi58hIy2VJxu_wETNxbJxbyAakKPFyh";
+const KSUM_DRIVE_URL = "https://drive.google.com/drive/u/1/folders/1KIWBIBXCSqggfrOsnDBt8aTxNBY3hZ4N";
+const RESUME_DRIVE_URL = "https://drive.google.com/drive/u/1/folders/1qKXzLu9CjwOHDPqbxAb_XPdZBYCR4tDc";
+
+interface Milestone {
+  title: string;
+  subtitle: string;
+  date: string;
+  description: string;
+  link?: string;
+}
+
+const MILESTONES: Milestone[] = [
+  {
+    title: "India AI Impact",
+    subtitle: "AiByHer",
+    date: "2025",
+    description: "Cleared Round 1 of AiByHer, a pre-event of the India AI Summit, from 791 applications. Also received an invitation to attend the India AI Summit.",
+    link: AIBYHER_DRIVE_URL,
+  },
+  {
+    title: "AIWS",
+    subtitle: "All India Women Start-a-thon",
+    date: "2025",
+    description: "Selected from 10,000+ registrations after advancing through 3 rounds of selection.",
+    link: AIWS_DRIVE_URL,
+  },
+  {
+    title: "KSUM",
+    subtitle: "WE Start",
+    date: "2026",
+    description: "Selected for WE Start, a 3-month idea development program under KSUM, designed to take ideas from ideation to MVP for women founders across India.",
+    link: KSUM_DRIVE_URL,
+  }
+];
+
 // --- Components ---
 
 const SleekCard: React.FC<{ children: React.ReactNode, className?: string, onClick?: () => void }> = ({ children, className, onClick }) => (
   <motion.div
     whileHover={{ y: -4 }}
     onClick={onClick}
-    className={`sleek-card ${onClick ? 'cursor-pointer hover:border-google-blue/50' : ''} ${className}`}
+    className={`sleek-card ${onClick ? 'cursor-pointer hover:border-google-gray-300' : ''} ${className}`}
   >
     {children}
   </motion.div>
@@ -134,13 +172,13 @@ export default function App() {
               <span>Kerala, India</span>
             </div>
             <div className="flex gap-2">
-              <a href="https://github.com/Githubdiaries" target="_blank" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-blue hover:text-google-blue transition-all shadow-sm">
+              <a href="https://github.com/Githubdiaries" target="_blank" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-gray-300 hover:text-google-blue transition-all shadow-sm">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/in/aksa-susan-abraham/" target="_blank" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-blue hover:text-google-blue transition-all shadow-sm">
+              <a href="https://www.linkedin.com/in/aksa-susan-abraham/" target="_blank" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-gray-300 hover:text-google-blue transition-all shadow-sm">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="mailto:aksasusan1904@gmail.com" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-blue hover:text-google-blue transition-all shadow-sm">
+              <a href="mailto:aksasusan1904@gmail.com" className="p-2.5 bg-white border border-google-gray-200 rounded-xl hover:border-google-gray-300 hover:text-google-blue transition-all shadow-sm">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -170,8 +208,8 @@ export default function App() {
         {/* --- Projects --- */}
         <section className="space-y-8">
           <div className="flex justify-between items-end">
-            <h2 className="label-caps">Selected Work</h2>
-            <a href="https://github.com/Githubdiaries" target="_blank" className="text-[11px] font-bold text-google-blue hover:underline flex items-center gap-1">
+            <h2 className="label-caps">Works</h2>
+            <a href="https://github.com/Githubdiaries" target="_blank" className="text-[11px] font-bold text-google-blue hover:no-underline flex items-center gap-1">
               View all <ArrowRight className="w-3 h-3" />
             </a>
           </div>
@@ -242,12 +280,68 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- Milestones --- */}
+        <section id="milestones" className="space-y-8">
+          <div className="flex justify-between items-end">
+            <h2 className="label-caps">Milestones</h2>
+            <a 
+              href="https://drive.google.com/drive/folders/1KIWBIBXCSqggfrOsnDBt8aTxNBY3hZ4N" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-[11px] font-bold text-google-blue hover:no-underline flex items-center gap-1"
+            >
+              More on Drive <ArrowRight className="w-3 h-3" />
+            </a>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 pb-8">
+            {MILESTONES.map((milestone) => (
+              <SleekCard 
+                key={milestone.title}
+                onClick={() => {
+                  if (milestone.link) {
+                    window.open(milestone.link, "_blank", "noopener,noreferrer");
+                  }
+                }}
+              >
+                <div className="space-y-4">
+                  <div className="flex justify-between items-start">
+                    <div className="p-2 bg-google-blue/5 rounded-lg text-google-blue">
+                      <Trophy className="w-4 h-4" />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-google-gray-700 bg-google-gray-100 px-2 py-1 rounded-md uppercase tracking-wider">
+                      {milestone.date}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="figma-text-heading text-base leading-tight">
+                      {milestone.title}
+                    </h3>
+                    <p className="text-[12px] font-medium text-google-gray-700 mt-1">
+                      {milestone.subtitle}
+                    </p>
+                  </div>
+                  <p className="figma-text-body text-[13px] leading-relaxed">
+                    {milestone.description}
+                  </p>
+                </div>
+              </SleekCard>
+            ))}
+          </div>
+        </section>
+
         {/* --- Footer --- */}
         <footer className="pt-12 pb-20 border-t border-google-gray-200 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] font-bold uppercase tracking-[0.2em] text-google-gray-700 opacity-60">
           <span>© 2026 Aksa Susan Abraham</span>
           <div className="flex gap-10">
-            <a href="#projects" className="hover:text-google-blue transition-colors">Work</a>
-            <a href="https://drive.google.com/drive/folders/1KIWBIBXCSqggfrOsnDBt8aTxNBY3hZ4N" target="_blank" className="hover:text-google-blue transition-colors">Certificates</a>
+            <a 
+              href={RESUME_DRIVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-google-blue transition-colors"
+            >
+              Resume
+            </a>
           </div>
         </footer>
 
